@@ -1,6 +1,6 @@
 angular.module('MeuApp')
 
-    .controller('indexCtrl', function($scope){
+    .controller('filmesCtrl', function($scope){
         $scope.filmes = [
             {
                 titulo: "De volta para o futuro - parte 1",
