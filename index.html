@@ -3,16 +3,12 @@
 <head>
     <title>Meu App - Angular</title>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="src/app/app.js"></script>
-    <script src="src/app/controllers/indexCtrl.js"></script>
+
 </head>
 <body ng-app="MeuApp">
-    <div ng-controller="indexCtrl">
-        <h1>Filmes Legais</h1>
-        <ul ng-repeat="(key, filme) in filmes">
-            <li>{{filme.ano}} - {{ filme.titulo }}</li>
-        </ul>
-    </div>
+    <div ng-view></div>
 </body>
 </html>
