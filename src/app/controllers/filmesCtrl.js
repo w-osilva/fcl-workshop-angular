@@ -1,9 +1,9 @@
 angular.module('MeuApp')
 
-    .controller('filmesCtrl', function($scope, filmesFactory, alertaService){
+    .controller('filmesCtrl', function($scope, filmesFactory, alertaService, $filter){
         $scope.filmes = filmesFactory.jurassic_park
 
-        $scope.filmeFavorito = null;
+        $scope.filmeFavorito = "";
 
         $scope.alertaConfirmacao = function() {
             alertaService.confirmacao($scope.filmeFavorito);
@@ -11,6 +11,11 @@ angular.module('MeuApp')
 
         $scope.alertaComum = function() {
             alertaService.comum($scope.filmeFavorito);
+        }
+
+        $scope.alertaConsoantes = function() {
+            var consoantes = $filter('consoantes')($scope.filmeFavorito);
+            alertaService.comum(consoantes);
         }
 
     })

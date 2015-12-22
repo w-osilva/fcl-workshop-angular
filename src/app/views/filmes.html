@@ -2,9 +2,11 @@
 <h1>Filmes Legais</h1>
 
 <h3>Digite o nome do seu filme favorito</h3>
-<input type="text" ng-model="filmeFavorito"/>
+<input type="text" ng-model="filmeFavorito"/> {{ filmeFavorito | consoantes }}
+<br/>
 <button ng-click="alertaComum()">Alerta</button>
 <button ng-click="alertaConfirmacao()">Confirma</button>
+<button ng-click="alertaConsoantes()">Consoantes</button>
 
 <br/><br/><hr/>
 
