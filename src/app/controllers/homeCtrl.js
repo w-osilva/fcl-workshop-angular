@@ -10,5 +10,9 @@ angular.module('MeuApp')
                 url: "#/filmes",
                 titulo: "Filmes Legais"
             },
+            {
+                url: "#/tempo",
+                titulo: "Previsão do Tempo"
+            },
         ]
     })

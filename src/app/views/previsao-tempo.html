@@ -1,0 +1,9 @@
+<a href="javascript:void(0)" onclick="window.history.back();">Voltar</a>
+
+<h1>Previsão do tempo</h1>
+
+<h3>Lista de endpoints configurados</h3>
+base_url: {{ base_url }}
+<ul ng-repeat="(key, value) in endpoints">
+    <li>{{ key }}: {{ value }}</li>
+</ul>

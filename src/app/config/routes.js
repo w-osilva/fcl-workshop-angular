@@ -13,6 +13,10 @@ angular.module("MeuApp")
             when('/hello-world', {
                 templateUrl: 'src/app/views/hello-world.html'
             }).
+            when('/tempo', {
+                templateUrl: 'src/app/views/previsao-tempo.html',
+                controller: 'previsaoTempoCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });
