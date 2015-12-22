@@ -1,5 +1,13 @@
 <a href="javascript:void(0)" onclick="window.history.back();">Voltar</a>
 <h1>Filmes Legais</h1>
+
+<h3>Digite o nome do seu filme favorito</h3>
+<input type="text" ng-model="filmeFavorito"/>
+<button ng-click="alertaComum()">Alerta</button>
+<button ng-click="alertaConfirmacao()">Confirma</button>
+
+<br/><br/><hr/>
+
 <ul ng-repeat="(key, filme) in filmes">
     <ng-filme titulo="{{ filme.titulo }}" ano="{{ filme.ano }}" imagem="{{ filme.imagem }}"></ng-filme>
 </ul>
