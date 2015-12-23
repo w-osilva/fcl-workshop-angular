@@ -2,8 +2,26 @@
 
 <h1>Previsão do tempo</h1>
 
-<h3>Lista de endpoints configurados</h3>
-base_url: {{ base_url }}
-<ul ng-repeat="(key, value) in endpoints">
-    <li>{{ key }}: {{ value }}</li>
-</ul>
+<h3>Digite o nome da cidade e UF do estado (ex. são paulo-SP)</h3>
+<input type="text" placeholder="são paulo" ng-model="cidade"/>
+<button ng-click="consultarPrevisao()">Consultar Previsão Tempo</button>
+<br/><br/>
+
+<div ng-show="existeDadosValidos">
+    <img src="{{ dadosTempo.agora.imagem }}" alt="" style="width: 80px; height: 80px; float: left"/>
+    {{ dadosTempo.cidade }} | {{ dadosTempo.agora.data_hora }} <br/>
+    {{ dadosTempo.agora.descricao }} | {{ dadosTempo.agora.temperatura }}ºC | Umidade {{ dadosTempo.agora.umidade }}
+    <br/><br/><br/>
+
+    <ul ng-repeat="dia in dadosTempo.previsoes" style="list-style: none">
+        <li>
+            <img src="{{ dia.imagem }}" alt="" style="width: 40px; height: 40px; float: left"/>
+            {{ dia.data }}<br/>
+            {{ dia.descricao }} | Minima {{ dia.temperatura_min }}ºC | Máxima {{ dia.temperatura_max }}ºC
+        </li>
+    </ul>
+</div>
+
+<div ng-show="!existeDadosValidos">
+    {{ dadosTempo }}
+</div>
