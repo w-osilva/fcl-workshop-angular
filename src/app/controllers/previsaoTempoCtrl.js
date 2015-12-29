@@ -15,7 +15,6 @@ angular.module('MeuApp')
                 method: 'GET',
                 url: url
             }).success(function (data){
-                console.log(data)
                 $scope.dadosTempo = data;
                 $scope.existeDadosValidos = (typeof $scope.dadosTempo.erro === 'undefined')
             }).error(function (error, status){
