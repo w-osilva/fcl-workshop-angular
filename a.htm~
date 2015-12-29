@@ -1,0 +1,15 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="angular/angular.min.js"></script>
+      </head>
+  <body>
+    <div>
+      <label>Nome:</label>
+      <input type="text" ng-model="meuNome">
+      <input type="text" ng-model="meuSobrenome">
+      <hr>
+      <h1>Meu nome: {{meuNome}} {{meuSobrenome}}</h1>
+    </div>
+  </body>
+</html>

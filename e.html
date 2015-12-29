@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="MeuModulo">
+
+  <head>
+    <script src="angular/angular.min.js"></script>
+  </head>
+
+  <body>
+    
+    <div>
+
+      <h1>Diretiva ng-repeat</h1>
+
+      <div ng-controller="CtrlLista">
+
+        Filtrar <input type="search" ng-model="busca" />
+
+        <ul>
+          <li ng-repeat="pessoa in pessoas | filter:busca">{{pessoa.nome}} de <b>{{pessoa.cidade}}</b> </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+<script>
+  
+  angular.module('MeuModulo', [])
+
+      .controller('CtrlLista', function ($scope) {
+
+        $scope.pessoas = [
+
+          {nome: "Maria", cidade: "Jundiai"},
+          {nome: "Mariana", cidade: "Floripa"},
+          {nome: "Teco", cidade: "Rio"},
+          {nome: "Tico", cidade: "Salvador"}
+
+        ];
+      });
+  
+</script>

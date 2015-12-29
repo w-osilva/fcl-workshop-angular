@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="modulo">
+  <head>
+    <script src="angular/angular.min.js"></script>
+
+  </head>
+  <body>
+    <div ng-controller="CtrlApp">
+      <h1>{{hora}}</h1>
+    </div>
+  </body>
+</html>
+
+    <script>
+
+	angular.module('modulo',[])
+          .controller('CtrlApp', function ($scope, $interval) {
+		$interval( function () { 
+			var currentdate = new Date(); 
+			$scope.hora = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+		}, 1000);
+          });
+    </script>

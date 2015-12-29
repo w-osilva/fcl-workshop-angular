@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="MeuModulo">
+
+  <head>
+    <script src="angular/angular.min.js"></script>
+  </head>
+
+  <body>
+    
+    <div ng-controller="CtrlModulo">
+      <h1>Dependency Injection</h1>
+      <h2>{{nome}}</h2>
+    </div>
+
+  </body>
+
+</html>
+
+<script>
+  
+  angular.module('MeuModulo', [])
+
+      .controller('CtrlModulo', ['$scope', function (s) {
+        s.nome = 'Jose da Silva';
+      }]);
+
+      //.controller('CtrlModulo', function ($scope) {
+      //      $scope.nome = 'Jose da Silva';
+      // });
+  
+</script>

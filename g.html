@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="MeuModulo">
+  <head>
+
+    <script src='js/jquery.js'></script>
+    <script src="angular/angular.min.js"></script>
+    <script src='angular/angular-resource/angular-resource.min.js'></script>
+    <script src='angular/angular-route/angular-route.min.js'></script>
+    <script src='angular/ngModule/angular.ng-modules.js'></script>
+
+  </head>
+
+  <body>
+    
+    <div>
+
+      <h1>Template</h1>
+
+      <div id="local-printar-html"
+           ng-controller ="primeiroController"
+           ng-init       ="init('Este eh um valor sendo enviado para o template');">
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
+
+<script>
+  
+  angular.module('MeuModulo', [])
+
+          .factory('minha_factory', function () {
+
+            var getQualquerCoisa = function () {
+              return 'Este terceiro valor   ';
+            };
+
+            return  {
+              getQualquerCoisa: getQualquerCoisa
+            }
+          })
+
+          .controller('primeiroController', function ($scope, $compile) {
+
+            $scope.init = function (parametro) {
+
+              $scope.primeiroValor = parametro;
+
+              var diretiva = $compile ('<ng-teste></ng-teste>') ($scope);
+
+              jQuery("#local-printar-html").append(diretiva);
+
+            }
+          })
+
+          .directive('ngTeste', function() {
+
+            var diretiva = {};
+            diretiva.restrict    = "E";
+            diretiva.templateUrl = "template.html";
+            diretiva.controller  = 'SegundoController';
+            return diretiva;
+
+          })
+
+          .controller('SegundoController', function($scope,minha_factory) {
+
+            $scope.segundoValor = 'Este segundo valor ';
+            $scope.terceiroValor = minha_factory.getQualquerCoisa();
+
+          });
+</script>

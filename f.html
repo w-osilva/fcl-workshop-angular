@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="MeuModulo">
+  <head>
+    <script src="angular/angular.min.js"></script>
+  </head>
+  <body>
+    
+    <div>
+      <h1>Diretiva ng-click</h1>
+
+      <div ng-controller="CtrlLista">
+
+        Filtrar <input type="search" ng-model="busca" />
+
+        <ul>
+          <li ng-repeat="pessoa in pessoas | filter:busca">{{pessoa.nome}} de <b>{{pessoa.cidade}}</b> <button ng-click="remover($index)">Remover</button> </li>
+        </ul>
+
+        <div>
+          Nome:    <input type="text" ng-model="vNome" />
+          Cidade:  <input type="text" ng-model="vCidade" ng-change="verificarAlteracao()" />
+            <button ng-click="adicionar()">Adicionar a lista</button>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+<script>
+  
+  angular.module('MeuModulo', [])
+
+      .controller('CtrlLista', function ($scope) {
+
+        $scope.pessoas = [
+
+          {nome: "Maria", cidade: "Jundiai"},
+          {nome: "Mariana", cidade: "Floripa"},
+          {nome: "Teco", cidade: "Rio"},
+          {nome: "Tico", cidade: "Salvador"}
+
+        ];
+
+        $scope.adicionar = function () {
+
+          $scope.pessoas.push({ 
+            nome:   $scope.vNome, 
+            cidade: $scope.vCidade
+           });
+
+          $scope.vNome = '';
+          $scope.vCidade = '';
+        };
+
+        $scope.remover = function (index) {
+          $scope.pessoas.splice(index,1);
+        };
+        
+        $scope.$watch('vNome', function () { 
+            console.log('Analisando o model vNome');
+        });
+
+        $scope.verificarAlteracao = function () {
+            console.log('Analisando o model vCidade');
+        };
+
+      });
+  
+</script>
