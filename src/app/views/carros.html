@@ -1,0 +1,25 @@
+<a href="javascript:void(0)" onclick="window.history.back();">Voltar</a>
+<h1>Carros Maneiros</h1>
+
+<input type="text" ng-model="carroFavorito"/>
+<button ng-click="salvarCarro()">Adicionar</button>
+
+<br/><br/>
+
+<table width="95%" border="solid">
+    <tr>
+        <th>id</th>
+        <th>nome</th>
+        <th>ações</th>
+    </tr>
+    <tr ng-repeat="(key, carro) in carros">
+        <td>{{ carro.id }}</td>
+        <td>{{ carro.nome }}</td>
+        <td>
+            <input type="text" name="carro_{{carro.id}}"/>
+            <button ng-click="alterarCarro(carro.id)" >Alterar</button>
+            <button ng-click="removerCarro(carro.id)">Remover</button>
+        </td>
+    </tr>
+</table>
+

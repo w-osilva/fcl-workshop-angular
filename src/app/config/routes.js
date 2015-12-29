@@ -17,6 +17,10 @@ angular.module("MeuApp")
                 templateUrl: 'src/app/views/previsao-tempo.html',
                 controller: 'previsaoTempoCtrl'
             }).
+            when('/carros', {
+                templateUrl: 'src/app/views/carros.html',
+                controller: 'carrosCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });

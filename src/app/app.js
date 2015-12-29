@@ -1,1 +1,1 @@
-angular.module("MeuApp", ['ngRoute'])
+angular.module("MeuApp", ['ngRoute', 'ngResource'])

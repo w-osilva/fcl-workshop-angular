@@ -14,5 +14,9 @@ angular.module('MeuApp')
                 url: "#/tempo",
                 titulo: "Previsão do Tempo"
             },
+            {
+                url: "#/carros",
+                titulo: "Carros Maneiros"
+            },
         ]
     })
